@@ -73,29 +73,41 @@ fun HomePage(s1: String, s2: String, s3: String, navController: NavController) {
                 .padding(start = 30.dp, top = 40.dp)
         )
         Spacer(modifier = Modifier.height(200.dp))
-        Column(horizontalAlignment = Alignment.CenterHorizontally,) {
-            Text(
-                text = s2,
-                color = Color.White,
-                fontSize = 30.sp,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentWidth(align = Alignment.CenterHorizontally)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
+        Box(
 
-            Text(
-                text = s3,
-                color = Color.White,
-                fontSize = 15.sp,
-                modifier = Modifier
-                    .padding(start = 80.dp, end = 80.dp)
+        ) {
+            Image(painter = painterResource(id = R.drawable.card), contentDescription =null,
+                  modifier = Modifier
+                      .fillMaxSize()
+                      .padding(top = 40.dp, start = 20.dp, end = 20.dp, bottom =50.dp ),
+                  alignment = Alignment.Center
             )
-            Button(onClick = {
-                navController.navigate(Screens.SecondScreen.route)
-            }, modifier = Modifier.padding(top = 24.dp),
-                   shape = RoundedCornerShape(percent = 50)) {
-                Text(text = stringResource(id = R.string.Get_started_now))
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(top = 80.dp)) {
+                Text(
+                    text = s2,
+                    color = Color.White,
+                    fontSize = 30.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentWidth(align = Alignment.CenterHorizontally)
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Text(
+                    text = s3,
+                    color = Color.White,
+                    fontSize = 15.sp,
+                    modifier = Modifier
+                        .padding(start = 80.dp, end = 80.dp)
+                )
+                Button(onClick = {
+                    navController.navigate(Screens.SecondScreen.route)
+                }, modifier = Modifier.padding(top = 24.dp),
+                       shape = RoundedCornerShape(percent = 50)) {
+                    Text(text = stringResource(id = R.string.Get_started_now))
+                }
             }
         }
     }
